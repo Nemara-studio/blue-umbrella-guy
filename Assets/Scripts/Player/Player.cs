@@ -9,18 +9,25 @@ namespace BUG
         [Header("STATS")]
         [SerializeField] private float moveSpeed = 10f;
         [SerializeField] private float jumpForce = 10f;
-        [SerializeField] private float fallSpeedUmbrella = 10f;
+
+        [Header("Velocity Limit")]
+        [SerializeField] private float maxFallVelocity;
+        [SerializeField] private float maxJumpVelocity;
+        [SerializeField] private float maxUmbrellaFallVelocity;
+
 
         [Header("PROPERTIES")]
         [SerializeField] private LayerMask layerMask;
-
 
         private bool isUmbrellaOpen = false;
         private Rigidbody2D playerRb;
         private float inputHorizontal;
 
+        SpriteRenderer render;
+
         private void Start()
         {
+            render = GetComponent<SpriteRenderer>();
             playerRb = GetComponent<Rigidbody2D>();
         }
 
@@ -32,7 +39,8 @@ namespace BUG
         private void FixedUpdate()
         {
             Walk(inputHorizontal);
-            CheckFallingWithUmbrella();
+            CheckUmbrellaCondition();
+            CheckMaxVelocity();
         }
 
         private void InputPlayer()
@@ -77,12 +85,41 @@ namespace BUG
             isUmbrellaOpen = !isUmbrellaOpen;
         }
 
-        private void CheckFallingWithUmbrella()
+        private void CheckUmbrellaCondition()
         {
-            if (!isUmbrellaOpen) return;
+            // debug
+            if (isUmbrellaOpen)
+            {
+                render.color = Color.green;
+            }
+            else
+            {
+                render.color = Color.white;
+            }
 
-            if (playerRb.velocity.y <= 0)
-                playerRb.AddForce(new Vector2(0f, fallSpeedUmbrella));
+            // code
+            if (isUmbrellaOpen)
+            {
+                if (playerRb.velocity.y <= -maxUmbrellaFallVelocity)
+                {
+                    playerRb.velocity = new Vector2(playerRb.velocity.x, -maxUmbrellaFallVelocity);
+                }
+            }
+        }
+
+        private void CheckMaxVelocity()
+        {
+            // jump velocity
+            if (playerRb.velocity.y >= maxJumpVelocity)
+            {
+                playerRb.velocity = new Vector2(playerRb.velocity.x, maxJumpVelocity);
+            }
+
+            // fall velocity
+            if (playerRb.velocity.y <= -maxFallVelocity)
+            {
+                playerRb.velocity = new Vector2(playerRb.velocity.x, -maxFallVelocity);
+            }
         }
 
         private bool GroundCheck()

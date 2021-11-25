@@ -144,11 +144,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 08fe7cb40ab006b45920bb00c576ea04, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 4
-  jumpForce: 12
-  umbrellaForce: 100
+  moveSpeed: 8
+  jumpForce: 15
   maxFallVelocity: 10
   maxJumpVelocity: 20
+  maxUmbrellaFallVelocity: 0
   layerMask:
     serializedVersion: 2
     m_Bits: 64

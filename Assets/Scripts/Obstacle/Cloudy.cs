@@ -6,6 +6,8 @@ namespace BUG
 {
     public class Cloudy : MonoBehaviour
     {
+
+        /*
         private void OnTriggerStay2D(Collider2D collision)
         {
             if (collision.GetComponent<Player>() != null)
@@ -18,5 +20,6 @@ namespace BUG
                 }
             }
         }
+        */
     }
 }

@@ -12,9 +12,7 @@ namespace BUG
 
         [Header("Velocity Limit")]
         [SerializeField] private float maxFallVelocity;
-        [SerializeField] private float maxJumpVelocity;
         [SerializeField] private float maxUmbrellaFallVelocity;
-
 
         [Header("PROPERTIES")]
         [SerializeField] private LayerMask layerMask;
@@ -24,11 +22,13 @@ namespace BUG
         private float inputHorizontal;
 
         SpriteRenderer render;
+        Color defaultColor;
 
         private void Start()
         {
             render = GetComponent<SpriteRenderer>();
             playerRb = GetComponent<Rigidbody2D>();
+            defaultColor = render.color;
         }
 
         private void Update()
@@ -77,7 +77,7 @@ namespace BUG
         {
             if (!GroundCheck()) return;
 
-            playerRb.AddForce(new Vector2(0f, jumpForce * 100f));
+            playerRb.AddForce(new Vector2(0f, jumpForce * 200f));
         }
 
         private void ToogleUmbrella()
@@ -94,7 +94,7 @@ namespace BUG
             }
             else
             {
-                render.color = Color.white;
+                render.color = defaultColor;
             }
 
             // code
@@ -109,11 +109,6 @@ namespace BUG
 
         private void CheckMaxVelocity()
         {
-            // jump velocity
-            if (playerRb.velocity.y >= maxJumpVelocity)
-            {
-                playerRb.velocity = new Vector2(playerRb.velocity.x, maxJumpVelocity);
-            }
 
             // fall velocity
             if (playerRb.velocity.y <= -maxFallVelocity)
@@ -134,6 +129,18 @@ namespace BUG
         public bool IsUmbrellaOpen
         {
             get { return isUmbrellaOpen; }
+        }
+
+        // Hit by rain
+        private void OnParticleCollision(GameObject other)
+        {
+            if (other.tag == "Rain")
+            {
+                if (!isUmbrellaOpen)
+                {
+                    Debug.Log($"LOSE: Hit by rain.");
+                }
+            }
         }
     }
 }

@@ -7,7 +7,12 @@ namespace BUG
     public class AirArea : MonoBehaviour
     {
         [SerializeField] private float airForce;
-        [SerializeField] private Vector2 airDirection;
+        private Vector3 direction;
+
+        private void Update()
+        {
+            direction = Quaternion.AngleAxis(transform.rotation.eulerAngles.z, Vector3.forward) * Vector3.up;
+        }
 
         private void OnTriggerStay2D(Collider2D collision)
         {
@@ -16,7 +21,7 @@ namespace BUG
                 Player player = collision.GetComponent<Player>();
                 if (player.IsUmbrellaOpen)
                 {
-                    collision.GetComponent<Rigidbody2D>().AddForce(airDirection * airForce * Time.fixedDeltaTime * 10f);
+                    collision.GetComponent<Rigidbody2D>().AddForce(direction * airForce * Time.fixedDeltaTime * 20f);
                 }
             }
         }

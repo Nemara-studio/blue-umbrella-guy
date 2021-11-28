@@ -49,8 +49,8 @@ public class SceneChanger : MonoBehaviour
         scene.allowSceneActivation = true;
         loadingCanvas.GetComponent<Animator>().SetTrigger("Fade Out");
 
-        yield return new WaitForSeconds(loadingCanvas.GetComponent<Animator>().GetCurrentAnimatorClipInfo(0).Length);
-        
+        yield return new WaitForSeconds(loadingCanvas.GetComponent<Animator>().GetCurrentAnimatorClipInfo(0).Length + 0.2f);
+
         loadingCanvas.SetActive(false);
     }
 }

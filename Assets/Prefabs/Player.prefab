@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 952440426872183719}
   - component: {fileID: 952440426872183712}
   - component: {fileID: 2090781595715405575}
+  - component: {fileID: 1160859610}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -97,7 +98,7 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 1
+  m_Mass: 2
   m_LinearDrag: 0
   m_AngularDrag: 0.05
   m_GravityScale: 10
@@ -119,9 +120,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 8
-  jumpForce: 15
-  maxFallVelocity: 10
-  maxUmbrellaFallVelocity: 0
+  jumpForce: 30
+  maxFallVelocity: 20
+  maxUmbrellaFallVelocity: 2
   layerMask:
     serializedVersion: 2
     m_Bits: 64
@@ -151,3 +152,11 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 2}
   m_EdgeRadius: 0
+--- !u!81 &1160859610
+AudioListener:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 952440426872183723}
+  m_Enabled: 1

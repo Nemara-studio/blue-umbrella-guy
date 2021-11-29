@@ -33,11 +33,15 @@ namespace BUG
 
         private void Update()
         {
+            if (GameManager.singleton.isPaused) return;
+
             InputPlayer();
         }
 
         private void FixedUpdate()
         {
+            if (GameManager.singleton.isPaused) return;
+
             Walk(inputHorizontal);
             CheckUmbrellaCondition();
             CheckMaxVelocity();
@@ -139,6 +143,7 @@ namespace BUG
                 if (!isUmbrellaOpen)
                 {
                     Debug.Log($"LOSE: Hit by rain.");
+                    GameManager.singleton.Lose();
                 }
             }
         }

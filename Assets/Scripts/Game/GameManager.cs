@@ -35,8 +35,22 @@ public class GameManager : MonoBehaviour
         losePanel.SetActive(true);
     }
 
+    public void Win()
+    {
+        if (LevelManager.singleton.IsNextLevelAvailable())
+        {
+            LevelManager.singleton.currentLevel += 1;
+            LevelManager.singleton.SaveCurrentLevel();
+            SceneChanger.singleton.LoadScene(LevelManager.singleton.GetLevelScene());
+        }
+        else
+        {
+            SceneChanger.singleton.LoadScene("MenuScene");
+        }
+    }
+
     public void RestartGame()
     {
-        
+        SceneChanger.singleton.LoadScene(LevelManager.singleton.GetLevelScene(), () => Time.timeScale = 1);
     }
 }

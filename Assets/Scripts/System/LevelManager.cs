@@ -7,7 +7,7 @@ public class LevelManager : MonoBehaviour
     public static LevelManager singleton;
 
     private string levelDataName = "Level";
-    private int currentLevel;
+    [HideInInspector] public int currentLevel;
     public List<string> levelScene;
 
     private void Awake()
@@ -39,9 +39,19 @@ public class LevelManager : MonoBehaviour
         return levelScene[currentLevel];
     }
 
-    public void Save(int level)
+    public bool IsNextLevelAvailable()
     {
-        PlayerPrefs.SetInt(levelDataName, level);
+        if (currentLevel + 1 < levelScene.Count)
+        {
+            return true;
+        }
+
+        return false;
+    }
+
+    public void SaveCurrentLevel()
+    {
+        PlayerPrefs.SetInt(levelDataName, currentLevel);
     }
 
     public void Load()

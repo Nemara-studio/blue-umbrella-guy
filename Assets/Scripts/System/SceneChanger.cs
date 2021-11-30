@@ -23,33 +23,35 @@ public class SceneChanger : MonoBehaviour
         }
     }
 
-    public void LoadScene(string sceneName)
+    public void LoadScene(string sceneName, System.Action onStartAnimationCompleted = null)
     {
-        StartCoroutine(SceneLoaded(sceneName));
+        StartCoroutine(SceneLoaded(sceneName, onStartAnimationCompleted));
     }
 
-    private IEnumerator SceneLoaded(string sceneName)
+    private IEnumerator SceneLoaded(string sceneName, System.Action onStartAnimationCompleted = null)
     {
         var scene = SceneManager.LoadSceneAsync(sceneName);
         scene.allowSceneActivation = false;
 
         loadingCanvas.SetActive(true);
 
-        yield return new WaitForSeconds(loadingCanvas.GetComponent<Animator>().GetCurrentAnimatorClipInfo(0).Length);
+        yield return new WaitForSecondsRealtime(loadingCanvas.GetComponent<Animator>().GetCurrentAnimatorClipInfo(0).Length);
+
+        onStartAnimationCompleted?.Invoke();
 
         // checking if scene already loaded
         do
         {
-            yield return new WaitForSeconds(0.1f);
+            yield return new WaitForSecondsRealtime(0.1f);
 
         } while (scene.progress < 0.9f);
 
-        yield return new WaitForSeconds(0.2f);
+        yield return new WaitForSecondsRealtime(0.2f);
 
         scene.allowSceneActivation = true;
         loadingCanvas.GetComponent<Animator>().SetTrigger("Fade Out");
 
-        yield return new WaitForSeconds(loadingCanvas.GetComponent<Animator>().GetCurrentAnimatorClipInfo(0).Length + 0.2f);
+        yield return new WaitForSecondsRealtime(loadingCanvas.GetComponent<Animator>().GetCurrentAnimatorClipInfo(0).Length + 0.2f);
 
         loadingCanvas.SetActive(false);
     }

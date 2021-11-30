@@ -49,7 +49,7 @@ public class PatrolEnemy : MonoBehaviour
     {
         if (collision.tag == "Player")
         {
-            Debug.Log($"LOSE: get hit by enemy.");
+            GameManager.singleton.Lose();
         }
     }
 }

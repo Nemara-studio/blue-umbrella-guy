@@ -17,6 +17,12 @@ namespace BUG
         [Header("PROPERTIES")]
         [SerializeField] private LayerMask layerMask;
 
+        [Header("SFX")]
+        public AudioSource walkSound;
+        public AudioSource jumpSound;
+        public AudioSource rainOnUmbrellaSound;
+        public AudioSource openUmbrellaSound;
+
         private bool isUmbrellaOpen = false;
         private Rigidbody2D playerRb;
         private float inputHorizontal;
@@ -87,6 +93,10 @@ namespace BUG
         private void ToogleUmbrella()
         {
             isUmbrellaOpen = !isUmbrellaOpen;
+            if (isUmbrellaOpen)
+            {
+                openUmbrellaSound.Play();
+            }
         }
 
         private void CheckUmbrellaCondition()
@@ -138,13 +148,37 @@ namespace BUG
         // Hit by rain
         private void OnParticleCollision(GameObject other)
         {
+            if (GameManager.singleton.isPaused) return;
+
             if (other.tag == "Rain")
             {
+
                 if (!isUmbrellaOpen)
                 {
                     Debug.Log($"LOSE: Hit by rain.");
                     GameManager.singleton.Lose();
                 }
+            }
+        }
+
+        private void OnTriggerEnter2D(Collider2D collision)
+        {
+            if (collision.tag == "Win Area")
+            {
+                GameManager.singleton.Win();
+            }
+
+            if (collision.tag == "Rain")
+            {
+                rainOnUmbrellaSound.Play();
+            }
+        }
+
+        private void OnTriggerExit2D(Collider2D collision)
+        {
+            if (collision.tag == "Rain")
+            {
+                rainOnUmbrellaSound.Stop();
             }
         }
     }

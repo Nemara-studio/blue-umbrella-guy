@@ -11,6 +11,8 @@ public class PatrolEnemy : MonoBehaviour
     private bool isMoved;
     private int nextPositionIndex = 0;
 
+    [SerializeField] private Animator anim;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -28,6 +30,9 @@ public class PatrolEnemy : MonoBehaviour
 
         yield return new WaitForSeconds(delayMove);
 
+        float flipped = transform.position.x > movePoint[nextPositionIndex].x ? 180f : 0f;
+        transform.rotation = Quaternion.Euler(transform.rotation.eulerAngles.x, flipped, transform.rotation.eulerAngles.z);
+
         isMoved = true;
     }
 
@@ -35,7 +40,12 @@ public class PatrolEnemy : MonoBehaviour
     {
         if (isMoved)
         {
+            anim.SetBool("Run", true);
             transform.position = Vector2.MoveTowards(transform.position, movePoint[nextPositionIndex], speed * Time.deltaTime);
+        }
+        else
+        {
+            anim.SetBool("Run", false);
         }
 
         if ((Vector2) transform.position == movePoint[nextPositionIndex])

@@ -163,7 +163,6 @@ namespace BUG
 
             if (other.tag == "Rain")
             {
-
                 if (!isUmbrellaOpen)
                 {
                     Debug.Log($"LOSE: Hit by rain.");
@@ -179,7 +178,7 @@ namespace BUG
                 GameManager.singleton.Win();
             }
 
-            if (collision.tag == "Rain")
+            if (collision.tag == "Rain" && !rainOnUmbrellaSound.isPlaying)
             {
                 rainOnUmbrellaSound.Play();
             }

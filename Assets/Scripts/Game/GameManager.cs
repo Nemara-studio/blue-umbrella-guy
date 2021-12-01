@@ -53,6 +53,6 @@ public class GameManager : MonoBehaviour
 
     public void RestartGame()
     {
-        SceneChanger.singleton.LoadScene(LevelManager.singleton.GetLevelScene(), () => Time.timeScale = 1);
+        SceneChanger.singleton.LoadScene(gameObject.scene.name, () => Time.timeScale = 1);
     }
 }

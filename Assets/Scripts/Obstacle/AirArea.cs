@@ -16,12 +16,12 @@ namespace BUG
 
         private void OnTriggerStay2D(Collider2D collision)
         {
-            if (collision.GetComponent<Player>() != null)
+            if (collision.tag == "Player")
             {
-                Player player = collision.GetComponent<Player>();
+                Player player = collision.GetComponentInParent<Player>();
                 if (player.IsUmbrellaOpen)
                 {
-                    collision.GetComponent<Rigidbody2D>().AddForce(direction * airForce * Time.fixedDeltaTime * 20f);
+                    collision.GetComponentInParent<Rigidbody2D>().AddForce(direction * airForce * Time.fixedDeltaTime * 20f);
                 }
             }
         }

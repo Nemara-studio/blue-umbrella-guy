@@ -15,6 +15,8 @@ namespace BUG
         [SerializeField] private float maxUmbrellaFallVelocity;
 
         [Header("PROPERTIES")]
+        [SerializeField] private Animator anim;
+        [SerializeField] private Collider2D umbrellaCollider;
         [SerializeField] private LayerMask layerMask;
 
         [Header("SFX")]
@@ -27,14 +29,9 @@ namespace BUG
         private Rigidbody2D playerRb;
         private float inputHorizontal;
 
-        SpriteRenderer render;
-        Color defaultColor;
-
         private void Start()
         {
-            render = GetComponent<SpriteRenderer>();
             playerRb = GetComponent<Rigidbody2D>();
-            defaultColor = render.color;
         }
 
         private void Update()
@@ -75,9 +72,9 @@ namespace BUG
         {
             // ANIMATE
             if (direction == 1)
-                GetComponent<SpriteRenderer>().flipX = false;
+                transform.rotation = Quaternion.Euler(new Vector3(transform.rotation.eulerAngles.x, 0, transform.rotation.eulerAngles.z));
             else if (direction == -1)
-                GetComponent<SpriteRenderer>().flipX = true;
+                transform.rotation = Quaternion.Euler(new Vector3(transform.rotation.eulerAngles.x, 180, transform.rotation.eulerAngles.z));
 
             // WALK
             playerRb.velocity = new Vector2(direction * moveSpeed, playerRb.velocity.y);
@@ -95,22 +92,20 @@ namespace BUG
             isUmbrellaOpen = !isUmbrellaOpen;
             if (isUmbrellaOpen)
             {
+                umbrellaCollider.enabled = true;
                 openUmbrellaSound.Play();
             }
+            else
+            {
+                umbrellaCollider.enabled = false;
+            }
+
+            // animation
+            anim.SetBool("Umbrella", isUmbrellaOpen);
         }
 
         private void CheckUmbrellaCondition()
         {
-            // debug
-            if (isUmbrellaOpen)
-            {
-                render.color = Color.green;
-            }
-            else
-            {
-                render.color = defaultColor;
-            }
-
             // code
             if (isUmbrellaOpen)
             {

@@ -1,34 +1,25 @@
 fileFormatVersion: 2
-guid: 94d6b6b08b5af2b4e9a8ff9864e589d4
+guid: 934d7c8403afb7f4598e9b62c83dfc91
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 8074338581418846440
-    second: Terrain_0
+      213: 2515629089393641909
+    second: idle-payung_0
   - first:
-      213: 4519664136019108208
-    second: Terrain_1
+      213: -5262633421452991041
+    second: idle-payung_1
   - first:
-      213: -6337999885091750218
-    second: Terrain_2
+      213: -7725943854817962220
+    second: idle-payung_2
   - first:
-      213: -5779282676337348671
-    second: Terrain_3
+      213: 6201807837968152340
+    second: idle-payung_3
   - first:
-      213: -1238933728272178944
-    second: Terrain_4
+      213: 3325746190995693334
+    second: idle-payung_4
   - first:
-      213: -4637172546458061636
-    second: Terrain_5
-  - first:
-      213: 1404196382344981941
-    second: Terrain_6
-  - first:
-      213: -6537453368205885854
-    second: Terrain_7
-  - first:
-      213: -3932762474534642510
-    second: Terrain_8
+      213: 6687538682081449433
+    second: idle-payung_5
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -73,7 +64,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 32
+  spritePixelsToUnits: 100
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -142,202 +133,127 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Terrain_0
+      name: idle-payung_0
       rect:
         serializedVersion: 2
         x: 0
-        y: 257
-        width: 128
-        height: 128
+        y: 0
+        width: 250
+        height: 350
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape:
-      - - {x: -64, y: -64}
-        - {x: -64, y: -15}
-        - {x: 64, y: -15}
-        - {x: 64, y: -64}
-      tessellationDetail: 0
-      bones: []
-      spriteID: 8e8a3bdf820dd0070800000000000000
-      internalID: 8074338581418846440
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Terrain_1
-      rect:
-        serializedVersion: 2
-        x: 128
-        y: 257
-        width: 128
-        height: 128
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape:
-      - - {x: -64, y: -64}
-        - {x: -64, y: -15}
-        - {x: 64, y: -15}
-        - {x: 64, y: -64}
-      tessellationDetail: 0
-      bones: []
-      spriteID: 071ed73e59219be30800000000000000
-      internalID: 4519664136019108208
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Terrain_2
-      rect:
-        serializedVersion: 2
-        x: 256
-        y: 257
-        width: 128
-        height: 128
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape:
-      - - {x: -64, y: -64}
-        - {x: -64, y: -15}
-        - {x: 64, y: -15}
-        - {x: 64, y: -64}
-      tessellationDetail: 0
-      bones: []
-      spriteID: 6beb3a64fa6ea08a0800000000000000
-      internalID: -6337999885091750218
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Terrain_3
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 129
-        width: 128
-        height: 128
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1cfe75c960ddbcfa0800000000000000
-      internalID: -5779282676337348671
+      spriteID: 5b982f3145f49e220800000000000000
+      internalID: 2515629089393641909
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Terrain_4
+      name: idle-payung_1
       rect:
         serializedVersion: 2
-        x: 128
-        y: 129
-        width: 128
-        height: 128
+        x: 250
+        y: 0
+        width: 250
+        height: 350
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 001261a965c6ecee0800000000000000
-      internalID: -1238933728272178944
+      spriteID: fb5223b29ce57f6b0800000000000000
+      internalID: -5262633421452991041
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Terrain_5
+      name: idle-payung_2
       rect:
         serializedVersion: 2
-        x: 256
-        y: 129
-        width: 128
-        height: 128
+        x: 500
+        y: 0
+        width: 250
+        height: 350
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: cb47c26432475afb0800000000000000
-      internalID: -4637172546458061636
+      spriteID: 41796f27ffee7c490800000000000000
+      internalID: -7725943854817962220
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Terrain_6
+      name: idle-payung_3
       rect:
         serializedVersion: 2
-        x: 0
-        y: 1
-        width: 128
-        height: 128
+        x: 750
+        y: 0
+        width: 250
+        height: 350
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5bdaf848b25bc7310800000000000000
-      internalID: 1404196382344981941
+      spriteID: 417335bbe5f311650800000000000000
+      internalID: 6201807837968152340
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Terrain_7
+      name: idle-payung_4
       rect:
         serializedVersion: 2
-        x: 128
-        y: 1
-        width: 128
-        height: 128
+        x: 1000
+        y: 0
+        width: 250
+        height: 350
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 26e386c6ccc4645a0800000000000000
-      internalID: -6537453368205885854
+      spriteID: 61f18674a8c672e20800000000000000
+      internalID: 3325746190995693334
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Terrain_8
+      name: idle-payung_5
       rect:
         serializedVersion: 2
-        x: 256
-        y: 1
-        width: 128
-        height: 128
+        x: 1250
+        y: 0
+        width: 250
+        height: 350
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 2bc5067bd550c69c0800000000000000
-      internalID: -3932762474534642510
+      spriteID: 9d5162fcff8eecc50800000000000000
+      internalID: 6687538682081449433
       vertices: []
       indices: 
       edges: []

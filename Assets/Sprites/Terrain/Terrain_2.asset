@@ -10,9 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 13312, guid: 0000000000000000e000000000000000, type: 0}
-  m_Name: Terrain
+  m_Name: Terrain_2
   m_EditorClassIdentifier: 
-  m_Sprite: {fileID: 21300000, guid: db10d3e11495fe843aa221f291c8b5ed, type: 3}
+  m_Sprite: {fileID: -6337999885091750218, guid: 94d6b6b08b5af2b4e9a8ff9864e589d4, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_Transform:
     e00: 1

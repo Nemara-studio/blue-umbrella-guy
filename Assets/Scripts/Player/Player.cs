@@ -83,7 +83,6 @@ namespace BUG
             // sound
             if (direction != 0 && GroundCheck() && !walkSound.isPlaying)
             {
-                Debug.Log($"{walkSound.isPlaying}");
                 walkSound.Play();
             }
             else if (direction == 0 || !GroundCheck())
@@ -96,6 +95,7 @@ namespace BUG
         {
             if (!GroundCheck()) return;
 
+            jumpSound.Play();
             playerRb.AddForce(new Vector2(0f, jumpForce * 200f));
         }
 

@@ -79,6 +79,17 @@ namespace BUG
 
             // WALK
             playerRb.velocity = new Vector2(direction * moveSpeed, playerRb.velocity.y);
+
+            // sound
+            if (direction != 0 && GroundCheck() && !walkSound.isPlaying)
+            {
+                Debug.Log($"{walkSound.isPlaying}");
+                walkSound.Play();
+            }
+            else if (direction == 0 || !GroundCheck())
+            {
+                walkSound.Stop();
+            }
         }
 
         private void Jump()

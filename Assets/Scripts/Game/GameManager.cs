@@ -37,6 +37,8 @@ public class GameManager : MonoBehaviour
 
     public void Win()
     {
+        Debug.Log("Win");
+
         if (LevelManager.singleton.IsNextLevelAvailable())
         {
             LevelManager.singleton.currentLevel += 1;

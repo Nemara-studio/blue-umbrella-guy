@@ -581,7 +581,7 @@ GameObject:
   m_Component:
   - component: {fileID: 476347324}
   m_Layer: 0
-  m_Name: Air Group
+  m_Name: -- Wind
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1200,7 +1200,7 @@ GameObject:
   m_Component:
   - component: {fileID: 808407611}
   m_Layer: 0
-  m_Name: Cloud Group
+  m_Name: -- Rain
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

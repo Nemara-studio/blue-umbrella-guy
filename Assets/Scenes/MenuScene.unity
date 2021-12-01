@@ -11247,7 +11247,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   currentLevel: 0
   levelScene:
-  - GameScene
+  - Prologue
 --- !u!4 &1570452370
 Transform:
   m_ObjectHideFlags: 0

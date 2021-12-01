@@ -23,8 +23,18 @@ public class MenuManager : MonoBehaviour
         }
     }
 
-    public void Play()
+    public void StartNewGame()
     {
+        LevelManager.singleton.currentLevel = 0;
+        LevelManager.singleton.SaveCurrentLevel();
+        SceneChanger.singleton.LoadScene(LevelManager.singleton.GetLevelScene());
+    }
+
+    public void ResumePlay()
+    {
+        if (!LevelManager.singleton.CheckSavedData()) return;
+
+        LevelManager.singleton.Load();
         SceneChanger.singleton.LoadScene(LevelManager.singleton.GetLevelScene());
     }
 }

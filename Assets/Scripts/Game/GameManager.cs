@@ -6,9 +6,11 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager singleton;
 
+    public bool isTest = false;
     public bool isPaused = false;
 
     public GameObject losePanel;
+    public GameObject endPanel;
 
     private void Awake()
     {
@@ -27,6 +29,14 @@ public class GameManager : MonoBehaviour
         // TODO: start level
     }
 
+    private void Update()
+    {
+        if (isTest)
+        {
+            TestInput();
+        }
+    }
+
     public void Lose()
     {
         Time.timeScale = 0;
@@ -39,6 +49,9 @@ public class GameManager : MonoBehaviour
     {
         Debug.Log("Win");
 
+        Time.timeScale = 0;
+        isPaused = true;
+
         if (LevelManager.singleton.IsNextLevelAvailable())
         {
             LevelManager.singleton.currentLevel += 1;
@@ -47,12 +60,25 @@ public class GameManager : MonoBehaviour
         }
         else
         {
-            SceneChanger.singleton.LoadScene("MenuScene");
+            endPanel.SetActive(true);
         }
+    }
+
+    public void BackToMenu()
+    {
+        SceneChanger.singleton.LoadScene("MenuScene");
     }
 
     public void RestartGame()
     {
         SceneChanger.singleton.LoadScene(gameObject.scene.name, () => Time.timeScale = 1);
+    }
+
+    private void TestInput()
+    {
+        if (Input.GetKeyDown(KeyCode.P))
+        {
+            Win();
+        }
     }
 }

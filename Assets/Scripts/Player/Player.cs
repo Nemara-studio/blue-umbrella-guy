@@ -173,6 +173,8 @@ namespace BUG
 
         private void OnTriggerEnter2D(Collider2D collision)
         {
+            if (GameManager.singleton.isPaused) return;
+
             if (collision.tag == "Win Area")
             {
                 GameManager.singleton.Win();
@@ -181,6 +183,11 @@ namespace BUG
             if (collision.tag == "Rain" && !rainOnUmbrellaSound.isPlaying)
             {
                 rainOnUmbrellaSound.Play();
+            }
+
+            if (collision.tag == "Lose Area")
+            {
+                GameManager.singleton.Lose();
             }
         }
 

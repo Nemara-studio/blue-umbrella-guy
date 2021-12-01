@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Rain
   - Win Area
+  - Lose Area
   layers:
   - Default
   - TransparentFX

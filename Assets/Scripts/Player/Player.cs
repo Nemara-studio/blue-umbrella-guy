@@ -39,6 +39,7 @@ namespace BUG
             if (GameManager.singleton.isPaused) return;
 
             InputPlayer();
+            UpdateAnimation();
         }
 
         private void FixedUpdate()
@@ -118,7 +119,6 @@ namespace BUG
 
         private void CheckMaxVelocity()
         {
-
             // fall velocity
             if (playerRb.velocity.y <= -maxFallVelocity)
             {
@@ -133,6 +133,11 @@ namespace BUG
             RaycastHit2D raycastHit = Physics2D.BoxCast(collider.bounds.center, collider.bounds.size, 0f, Vector2.down, offsetHeight, layerMask);
 
             return raycastHit.collider != null;
+        }
+
+        private void UpdateAnimation()
+        {
+            anim.SetBool("Run", (Input.GetAxisRaw("Horizontal") != 0) && GroundCheck());
         }
 
         public bool IsUmbrellaOpen
